@@ -14,8 +14,9 @@ public class Main {
         Woman woman = WomanDao.getById(7L);
         Dance dance = new Dance(man,woman,"Tango");
 
-        DanceDao.save(dance);
 
+        DanceDao.save(dance);
         System.out.println(DanceDao.getAllHisDances(man));
+        System.out.println(DanceDao.getAllHerDances(WomanDao.getById(5L)));
     }
 }

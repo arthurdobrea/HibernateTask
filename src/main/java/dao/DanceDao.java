@@ -2,6 +2,7 @@ package dao;
 
 import model.Dance;
 import model.Man;
+import model.Woman;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import util.HibernateUtil;
@@ -51,6 +52,12 @@ public class DanceDao {
         session = HibernateUtil.getSession();
         Query query = session.createQuery("from Dance where man.id = :id");
         query.setParameter("id",man.getId());
+        return query.list();
+    }
+    public static List getAllHerDances(Woman woman){
+        session = HibernateUtil.getSession();
+        Query query = session.createQuery("from Dance where woman.id = :id");
+        query.setParameter("id",woman.getId());
         return query.list();
     }
 
